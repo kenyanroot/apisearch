@@ -4,6 +4,7 @@ import  json
 import requests
 
 # this code is supposed to take a users input and pass it into the payload to get ids for the specific hotels
+# i have hard coded the input for testing purposes
 
 
 url = "https://api.worldota.net/api/b2b/v3/search/serp/hotels/"
@@ -19,22 +20,28 @@ headers = {
 
 response = requests.request("POST", url, headers=headers, data = payload).json()
 
-print(response)
 
+print(response['debug']['request']['ids'])
 
-
+ids=response['debug']['request']['ids']
 
 # passing the ids to the second apis soi can get the images and detaila ofg a specific hotel
-
-
-
-
 
 
 #this code takes in the ids as parameters and uses them to bring additional details including images of the hotel
 
 
-url = "https://api.worldota.net/api/b2b/v3/hotel/info/?data={\"id\":\"crowne_plaza_berlin_city_centre\",\"language\":\"en\"}"
+data = {
+    'id':ids,
+    'language':'en',
+
+
+}
+#
+data=json.dumps(data)
+
+
+url = f'https://api.worldota.net/api/b2b/v3/hotel/info/?data={data}'
 
 payload = {}
 
@@ -46,11 +53,10 @@ headers = {
 
 
 
-response = requests.request("GET", url, headers=headers, data = payload).json
+response = requests.request("GET", url, headers=headers, data = payload)
+print(response.text)
 
 
 
 #then loop over the results of the second api call
 # and append them to a list which will be passed to the context of a function based view to be rendered in django.
-#
-# I have included the api test creds in the header so it is easier for you to understand
