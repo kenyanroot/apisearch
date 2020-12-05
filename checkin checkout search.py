@@ -17,7 +17,7 @@ payload = "{\n    \"checkin\": \"2020-12-01\",\n    \"checkout\": \"2020-12-15\"
 
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Basic MzIwODo3YmFkZGFlZi00OTIyLTRiMzUtYTczZS01NWEwYWJkYzhlMGM=',
+    'Authorization': 'Basic <your basic auth>',
     'Cookie': '__cfduid=d7dd143fabf3187411dfb202f1e448eb61605885792; uid=TfTb8F+35rmz7TYlB6WFAg=='
 }
 
