@@ -48,7 +48,7 @@ def multi_id_req(list_items):
 
     get_headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Basic MzIwODo3YmFkZGFlZi00OTIyLTRiMzUtYTczZS01NWEwYWJkYzhlMGM=',
+        'Authorization': 'Basic <your basic auth>',
         'Cookie': '__cfduid=d7dd143fabf3187411dfb202f1e448eb61605885792; uid=TfTb8F+35rmz7TYlB6WFAg=='
     }
     get_response = requests.request("GET", get_url, headers=get_headers, data=get_payload)
